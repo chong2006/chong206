@@ -34,6 +34,21 @@
             background-color: rgba(255, 255, 255, 0.9);
             z-index: 9999;
         }
+        #notification {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ff6666;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            z-index: 10000;
+            opacity: 0.9;
+        }
         #flower1, #flower2, #crown {
             width: 30px;
             height: 30px;
@@ -56,7 +71,7 @@
 <body>
     <script>
         let readCount = 0;
-        
+
         function promptForName() {
             let userName = prompt("Thư dành cho cậu, hãy nhập tên của mình để đọc nó");
             let messageBox = document.getElementById("messageBox");
@@ -75,27 +90,19 @@
         }
         window.onload = promptForName;
 
-        // Function to show overlay
-        function showOverlay() {
-            document.getElementById('overlay').style.display = 'block';
-            setTimeout(function() {
-                alert('Cảnh báo: Bạn không thể chụp màn hình! Nội dung đã bị khóa.');
-                window.location.reload(); // Reload page after alert
-            }, 500); // Show alert after 500ms
+        // Function to show notification
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            notification.style.display = 'block';
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000); // Hide notification after 3 seconds
         }
 
-        // Detect screenshot attempts on iOS and other attempts using visibilitychange
+        // Detect screenshot attempts on iOS
         document.addEventListener('visibilitychange', function() {
             if (document.hidden) {
-                showOverlay();  // Show overlay when app goes to background
-            }
-        });
-
-        // Detect screen capture attempts (on key press like PrintScreen)
-        window.addEventListener('keydown', function(e) {
-            if (e.key === 'PrintScreen' || (e.metaKey && e.key === 'p')) {
-                showOverlay();  // Trigger overlay
-                e.preventDefault();  // Prevent screen capture
+                showNotification();  // Show "liuliu😛" notification when screen capture is detected
             }
         });
 
@@ -108,7 +115,7 @@
         });
     </script>
 
-    <div id="overlay"></div>
+    <div id="notification">liuliu😛</div> <!-- Notification element -->
 
     <div id="messageBox">
         <img id="flower1" class="flower" src="https://img.lovepik.com/free-png/20210923/lovepik-pink-dialog-png-image_401181692_wh1200.png" alt="flower">
