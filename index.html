@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message for You</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        #messageBox {
+            display: none;
+            padding: 20px;
+            border: 2px dashed #ff6699;
+            border-radius: 10px;
+            background-color: #ffcccc;
+            position: relative;
+            max-height: 80vh; /* Maximum height of the message box */
+            overflow-y: auto; /* Add vertical scrolling if content exceeds maximum height */
+            user-select: none; /* Disable text selection */
+        }
+        #messageBox h2, #messageBox p {
+            color: #ff6699;
+        }
+        #messageBox p {
+            white-space: pre-line; /* Ensure line breaks in the letter are preserved */
+        }
+        #overlay {
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            opacity: 0.9;
+            z-index: 9999;
+        }
+        .flower {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+        }
+        #flower1 {
+            top: -15px;
+            left: -15px;
+        }
+        #flower2 {
+            bottom: -15px;
+            right: -15px;
+        }
+        #crown {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: -15px;
+            right: -15px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function promptForName() {
+            let userName = prompt("Thư dành cho cậu, hãy nhập tên của mình để đọc nó");
+            let messageBox = document.getElementById("messageBox");
+            if (userName.toLowerCase() === "nguyễn yến nhi") {
+                messageBox.innerHTML = `<p>Hi cậu\n\nThư này chỉ mình cậu xem được thôi đó, tớ mới học lập trình thôi nên không biết làm xong có lỗi lủng gì không, không lỗi thì tốt=))\n\nHmmm nói sao nhỉ,\nTớ có nghe 1 số chuyện về cậu, có thể là trước đây tớ chưa bao giờ tin ai nói bất cứ điều gì về cậu cả, nhưng giờ khác rồi.\n\nCó thể là vì tớ cảm nhận được người mà tớ quen không phải cậu của hiện tại.\n\nSau khi mà tớ nghe về câu chuyện đó xong thì tớ cảm thấy có lẽ tớ đã có thể move on. Bởi người tớ yêu là ynhi trước đây cơ chứ không phải cậu của bây giờ hihi.\n\nNhưng mà tớ vẫn không thể tin được là cậu thay đổi nhiều như vậy đó.\n\nÀ thì tớ mong cậu đừng ntin hay stalk gì tớ nữa nhé, chả biết cậu có mục đích gì không hay chỉ làm vậy cho vui tay thôi nhưng mà dừng việc đó lại được r đó.\n\nTừ trước đến giờ tớ luôn để í mọi thứ về cuộc sống của cậu đó nha, chắc nó là thói quen thôi nhưng mà tớ chắc chắc r sẽ bỏ được thói quen đó.\n\nNói cho cậu biết nha,\nTất cả ảnh mà tớ có được từ cậu hay chúng ta trong time bên nhau tớ vẫn chưa có xóa, còn một số kỉ vật như cái áo tớ cũm rất là quý đó, với cả 1 tấm ảnh kỉ yếu và 1 tấm photobooth nữa tớ giữ kĩ lém hihi, kỉ niệm mờ.\n\nÀ tớ xin lỗi vì htrc lai cậu đi có hơi nhanh 1 chút, đừng để bụng nha, tại chả biết từ lúc nào tớ quen với tốc độ đó rồi í.\n\nÀ tiện đây tớ mún nói là,\nThật ra những gì cậu thí hôm 19/11 đó là tớ muốn cậu thấy nó á, lý do thì có những 2 cái cơ,\n1 phần là tớ phát hiện mình có bệnh trong người, cái này tớ vẫn chưa kể với ai cả, suỵt mình cậu biết thôi đó tại tớ đi khám có 1m thui à, à thì bệnh vớ vẩn cậu đừng quan tâm nha.\nCòn 1 phần nữa, tớ khá ích kỉ,có lẽ vậy, tớ đã trả đũa cậu bằng việc cho cậu chứng kiến những tin nhắn mà cậu cũng không thể nghĩ là tớ có thể làm vậy,\nCòn vì điều gì hả, là vì tớ ghét cái cách cậu tiếp xúc với th khác, tớ ghét cả cách cậu nhận món quà từ người con trai khác nữa, tớ ích kỉ thật.\nXin lỗi cậu vì đã cho cậu 1 cú sốc lớn nhé.\n\nCũm xin lỗi vì trong suốt khoảng thời gian bên nau tớ luôn muốn cậu làm theo ý mình, có lẽ tớ và cậu đã không hợp nhau ngay từ đầu, chẳng qua là tớ cố chấp thui, tớ thích 1 cô gái ngoan, ăn mặc kín đáo 1 chút, không có bất kì mối quan hệ nào với những người con trai khác mà tớ lại chọn cậu r bắt cậu phải làm theo những gì tớ thích chứ, dm tớ tệ thật đấy, từ trong ra ngoài đúng chả có điểm nào tốt cả hahaa, vậy mà cậu cũng yêu được nữa, ngố ghê áa.\n\nNhưng mà,\nChắc đến đây thôi, thật ra tớ muốn gặp mặt tâm sự hơn là gửi cậu 1 bức thư như thế này nhưng mà chuyện đó chắc sẽ không baog xảy ra đâu ha.\n\nCảm ơn vì cậu đã cố gắng chịu đựng tớ trong suốt khoảng time bên nhau nha, thiệt thòi cho cậu trong suốt quãng time đó quá tr. Nhưng mà giờ cậu được giải thoát khỏi tớ ruii, hết sức mà bung lụa chứ còn gì nữa nhỉ hahaa.\n\nChúc cậu tất cả nhé! Xin lũi cậu 1 lần nữa nhaa hihii.\n\nÀ tớ đã code làm sao để bức thư này không thể đọc lại lần 2, cũng không thể chụp ảnh màn hình. Nói chung là đọc 1 lần duy nhất rồi hết đó. Giống như đồ dùng 1 lần vậy á hihi, tớ quả hiểu cậu rồi mờ.</p>`;
+            } else {
+                alert("Thư này không dành cho bạn");
+                promptForName(); // Re-prompt immediately
+            }
+            messageBox.style.display = "block";
+        }
+        window.onload = promptForName;
+
+        // Disable text selection and copying
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('copy', function(e) {
+            e.preventDefault();
+        });
+
+        // Function to show overlay
+        function showOverlay() {
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        // Detect screenshot attempts on iOS (Note: limited capability)
+        window.addEventListener('keydown', function(e) {
+            if ((e.key === 'PrintScreen' || (e.metaKey && e.key === 'p'))) {
+                showOverlay();
+                e.preventDefault();
+            }
+        });
+    </script>
+
+    <div id="messageBox">
+        <img id="flower1" class="flower" src="https://img.lovepik.com/free-png/20210923/lovepik-pink-dialog-png-image_401181692_wh1200.png" alt="flower">
+        <img id="flower2" class="flower" src="https://img.lovepik.com/free-png/20210923/lovepik-pink-dialog-png-image_401181692_wh1200.png" alt="flower">
+        <img id="crown" src="https://img.lovepik.com/free-png/20210923/lovepik-pink-dialog-png-image_401181692_wh1200.png" alt="crown">
+    </div>
+
+    <div id="overlay"></div>
+</body>
+</html>
+
