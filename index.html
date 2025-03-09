@@ -78,21 +78,33 @@
         // Function to show overlay
         function showOverlay() {
             document.getElementById('overlay').style.display = 'block';
+            setTimeout(function() {
+                alert('Cảnh báo: Bạn không thể chụp màn hình! Nội dung đã bị khóa.');
+                window.location.reload(); // Reload page after alert
+            }, 500); // Show alert after 500ms
         }
 
-        // Detect screenshot attempts on iOS (Limited capability)
-        window.addEventListener('keydown', function(e) {
-            if ((e.key === 'PrintScreen' || (e.metaKey && e.key === 'p'))) {
-                showOverlay();
-                e.preventDefault();
+        // Detect screenshot attempts on iOS and other attempts using visibilitychange
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                showOverlay();  // Show overlay when app goes to background
             }
         });
 
-        // Detect iPhone screenshot attempt using visibility change (works in some cases)
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                showOverlay();
+        // Detect screen capture attempts (on key press like PrintScreen)
+        window.addEventListener('keydown', function(e) {
+            if (e.key === 'PrintScreen' || (e.metaKey && e.key === 'p')) {
+                showOverlay();  // Trigger overlay
+                e.preventDefault();  // Prevent screen capture
             }
+        });
+
+        // Prevent text selection and copying of content
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+        });
+        document.addEventListener('copy', function(e) {
+            e.preventDefault();
         });
     </script>
 
@@ -105,4 +117,5 @@
     </div>
 </body>
 </html>
+
 
